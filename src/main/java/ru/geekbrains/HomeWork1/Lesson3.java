@@ -1,6 +1,4 @@
-package ru.geekbrains.lesson1;
-
-import java.util.Scanner;
+package ru.geekbrains.HomeWork1;
 
 public class Lesson3 {
 
