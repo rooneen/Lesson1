@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class XO {
 
     public static char[][] map;
-    public static final int SIZE = 3;
+    public static final int SIZE = 5;
     public static final int DOTS_TO_WIN = 3;
 
     public static final char DOT_EMPTY = '*';
@@ -101,16 +101,16 @@ public class XO {
     }
 
     public static boolean checkWin(char dot) {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
             if ((map[i][0] == dot && map[i][1] == dot &&
-                    map[i][2] == dot) ||
+                    map[i][2] == dot && map[i][3] == dot && map[i][4] == dot) ||
                     (map[0][i] == dot && map[1][i] == dot &&
-                            map[2][i] == dot))
+                            map[2][i] == dot && map[3][i] == dot && map[4][i] == dot))
                 return true;
         if ((map[0][0] == dot && map[1][1] == dot &&
-                map[2][2] == dot) ||
-                (map[2][0] == dot && map[1][1] == dot &&
-                        map[0][2] == dot))
+                map[2][2] == dot && map[3][3] == dot && map[4][4] == dot) ||
+                (map[4][0] == dot && map[3][1] == dot && map[2][2] == dot && map[1][3] == dot &&
+                        map[0][4] == dot ))
             return true;
         return false;
     }
