@@ -78,16 +78,16 @@ public class XO {
             System.out.println("Введите координаты в формате  X Y");
             x = sc.nextInt() - 1;
             y = sc.nextInt() - 1;
-        } while (!isCellValid(x, y));
+        } while (isCellValid(x, y));
         map[y][x] = DOT_X;
     }
 
     public static boolean isCellValid(int x, int y) {
         if (x < 0 || x >= SIZE || y < 0 || y >= SIZE)
-            return false;
-        if (map[y][x] == DOT_EMPTY)
             return true;
-        return false;
+        if (map[y][x] == DOT_EMPTY)
+            return false;
+        return true;
     }
 
     public static void aiTurn() {
@@ -95,12 +95,27 @@ public class XO {
             do {
                 x = rand.nextInt(SIZE);
                 y = rand.nextInt(SIZE);
-            } while (!isCellValid(x, y));
+            } while (isCellValid(x, y));
         System.out.println("Компьютер пошёл в точку " + (x + 1) + " " + (y + 1));
         map[y][x] = DOT_O;
     }
 
-    public static boolean checkWin(char symb) {
+    public static boolean checkWin(char dot) {
+        for (int i = 0; i < 3; i++)
+            if ((map[i][0] == dot && map[i][1] == dot &&
+                    map[i][2] == dot) ||
+                    (map[0][i] == dot && map[1][i] == dot &&
+                            map[2][i] == dot))
+                return true;
+        if ((map[0][0] == dot && map[1][1] == dot &&
+                map[2][2] == dot) ||
+                (map[2][0] == dot && map[1][1] == dot &&
+                        map[0][2] == dot))
+            return true;
+        return false;
+    }
+
+    /*public static boolean checkWin(char symb) {
         if(map[0][0] == symb && map[0][1] == symb && map[0][2] == symb) return true;
         if(map[1][0] == symb && map[1][1] == symb && map[1][2] == symb) return true;
         if(map[2][0] == symb && map[2][1] == symb && map[2][2] == symb) return true;
@@ -110,7 +125,7 @@ public class XO {
         if(map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) return true;
         if(map[2][0] == symb && map[1][1] == symb && map[0][2] == symb) return true;
         return false;
-    }
+    }*/
 
     public static boolean isMapFull() {
         for (int i = 0; i < SIZE; i++) {
