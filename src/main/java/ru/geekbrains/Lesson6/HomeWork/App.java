@@ -3,6 +3,7 @@ package ru.geekbrains.Lesson6.HomeWork;
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +26,7 @@ public class App {
 
         System.out.println("Кошка сможет проплыть: 0 метров\nСобака сможет проплыть: 10 метров");
 
-        System.out.println("Введите дистанцию для плавания собаки:");
+        System.out.println("Введите дистанцию плавания для собаки:");
         double distance2 = scanner.nextDouble();
 
         System.out.println("Собака пытается проплыть (" + distance2 + "). Проплывает: " + dog.swim(distSwim2) + " метров");
