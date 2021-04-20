@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+    <Properties>
+        <Property name="basePath">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <Console name="myCons" target="SYSTEM_OUT">
+            <PatternLayout pattern="%F:%L:%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C - %m%n"/>
+        </Console>
+        <File name="File" fileName="${basePath}/logfile.log" append="true">
+            <PatternLayout pattern="%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C (%F:%L) - %m%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!--        <Logger name="ru.geekbrains.apache.Log" level="debug" additivity="false">-->
+        <!--            <AppenderRef ref="myCons"/>-->
+        <!--        </Logger>-->
+
+        <!-- Root Logger -->
+        <Root level="info">
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+
+
+</Configuration>
+        © 2021 GitHub, Inc.
